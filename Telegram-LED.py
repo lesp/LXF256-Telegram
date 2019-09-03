@@ -2,15 +2,17 @@ import telebot
 from gpiozero import LED
 
 led = LED(17)
-TOKEN = " Your API KEY"
+TOKEN = 'YOUR API KEY HERE'
 
 tb = telebot.TeleBot(TOKEN)
-@tb.message_handler(func=lambda msg: msg.text is not None and '/led-on' in msg.text)
+@tb.message_handler(func=lambda msg: msg.text is not None and '/led_on' in msg.text)
 def send_welcome(message):
     tb.reply_to(message, 'LED On')
-@tb.message_handler(func=lambda msg: msg.text is not None and '/led-off' in msg.text)
+    led.on()
+@tb.message_handler(func=lambda msg: msg.text is not None and '/led_off' in msg.text)
 def send_welcome(message):
     tb.reply_to(message, 'LED Off')
+    led.off()
 
 
 while True:
