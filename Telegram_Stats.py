@@ -5,7 +5,6 @@ import psutil
 TOKEN = "YOUR API KEY"
 
 tb = telebot.TeleBot(TOKEN)
-#tb.polling()
 
 @tb.message_handler(func=lambda msg: msg.text is not None and '/stats' in msg.text)
 def send_welcome(message):
