@@ -2,7 +2,7 @@ import telebot
 import time
 import psutil
 
-TOKEN = " YOUR API KEY "
+TOKEN = "YOUR API KEY"
 
 tb = telebot.TeleBot(TOKEN)
 #tb.polling()
